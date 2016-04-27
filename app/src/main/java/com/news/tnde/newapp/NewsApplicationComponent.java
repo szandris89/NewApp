@@ -20,6 +20,4 @@ public interface NewsApplicationComponent {
     void inject(MainActivity mainActivity);
 
     void inject(MainPresenter mainPresenter);
-
-    //void inject(StringInteractor stringInteractor);
 }

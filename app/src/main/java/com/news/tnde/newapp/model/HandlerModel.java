@@ -13,29 +13,29 @@ public class HandlerModel {
     private ArrayList<User> userList = new ArrayList<User>();
     private ArrayList<News> newsList = new ArrayList<News>();
 
-    HandlerModel(ArrayList<User> u, ArrayList<News> n){
+    public HandlerModel(ArrayList<User> u, ArrayList<News> n){
         userList = u;
         userSize = u.size();
         newsList = n;
         newsSize = n.size();
     }
-    HandlerModel(){
+    public HandlerModel(){
         userList = null; newsList = null;
     }
 
-    void addUser(User u){
+    public void addUser(User u){
         userList.add(u);
     }
 
-    void addNews(News n){
+    public void addNews(News n){
         newsList.add(n);
     }
 
-    ArrayList<User> getUserList(){
+    public ArrayList<User> getUserList(){
         return userList;
     }
 
-    ArrayList<News> getNewsList(){
+    public ArrayList<News> getNewsList(){
         return newsList;
     }
 }

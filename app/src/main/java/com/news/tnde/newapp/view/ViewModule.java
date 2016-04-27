@@ -2,14 +2,18 @@ package com.news.tnde.newapp.view;
 
 import android.content.Context;
 
-//import javax.inject.Singleton;
+import com.news.tnde.newapp.presenter.MainPresenter;
 
-//import dagger.Module;
-//import dagger.Provides;
+import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
+
 
 /**
  * Created by mobsoft on 2016. 04. 18..
  */
+@Module
 public class ViewModule {
     private Context context;
 
@@ -17,14 +21,14 @@ public class ViewModule {
         this.context = context;
     }
 
-    //@Provides
+    @Provides
     public Context provideContext() {
         return context;
     }
 
-    /*@Provides
+    @Provides
     @Singleton
     public MainPresenter getMainPresenter() {
         return new MainPresenter();
-    }*/
+    }
 }

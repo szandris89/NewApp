@@ -9,7 +9,7 @@ import com.news.tnde.newapp.view.ViewModule;
  */
 public class NewsApplication extends Application{
 
-    public static NewsApplication injector;
+    public static NewsApplicationComponent injector;
 
     @Override
     public void onCreate() {
