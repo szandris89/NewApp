@@ -1,9 +1,11 @@
 package com.news.tnde.newapp.presenter;
 
-
 import com.news.tnde.newapp.NewsApplication;
 import com.news.tnde.newapp.model.HandlerModel;
 import com.news.tnde.newapp.model.News;
+import com.news.tnde.newapp.model.User;
+import com.news.tnde.newapp.view.ListView;
+import com.news.tnde.newapp.view.LoginView;
 import com.news.tnde.newapp.view.MainView;
 
 import java.util.ArrayList;
@@ -11,24 +13,24 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 /**
- * Created by mobsoft on 2016. 04. 18..
+ * Created by Tünde on 2016.04.30..
  */
-public class MainPresenter extends Presenter<MainView> {
+public class ListPresenter extends  Presenter<ListView> {
 
     @Inject
     public HandlerModel model;
 
-    public MainPresenter(){
+    public ListPresenter(){
         NewsApplication.injector.inject(this);
     }
 
-    public void doStuff() {
-
-        //view.updateView( new News(1, 2, "bla", "bla", "bla"));
-        ArrayList<News> list = model.getNewsList();
-        if (list.size() > 0) {
-            view.updateView(list.get(0));
-        }
+    public ArrayList<News> getNewsList(){
+        ArrayList<News> ul = model.getNewsList();
+        return ul;
     }
 
 }
+
+
+
+

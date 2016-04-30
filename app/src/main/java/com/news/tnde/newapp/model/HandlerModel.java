@@ -20,15 +20,17 @@ public class HandlerModel {
         newsSize = n.size();
     }
     public HandlerModel(){
-        userList = null; newsList = null;
+        userList = null; newsList = null; userSize = 0; newsSize = 0;
     }
 
     public void addUser(User u){
         userList.add(u);
+        userSize++;
     }
 
     public void addNews(News n){
         newsList.add(n);
+        newsSize++;
     }
 
     public ArrayList<User> getUserList(){
