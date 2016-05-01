@@ -2,6 +2,7 @@ package com.news.tnde.newapp.view;
 
 import android.content.Context;
 
+import com.news.tnde.newapp.presenter.AddPresenter;
 import com.news.tnde.newapp.presenter.DetailsPresenter;
 import com.news.tnde.newapp.presenter.ListPresenter;
 import com.news.tnde.newapp.presenter.LoginPresenter;
@@ -52,5 +53,7 @@ public class ViewModule {
     @Singleton
     public DetailsPresenter getDetailsPresenter() { return new DetailsPresenter(); }
 
-
+    @Provides
+    @Singleton
+    public AddPresenter getAddPresenter() { return new AddPresenter(); }
 }

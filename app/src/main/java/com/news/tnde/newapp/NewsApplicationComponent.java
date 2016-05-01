@@ -1,11 +1,13 @@
 package com.news.tnde.newapp;
 
 import com.news.tnde.newapp.model.ModelModule;
+import com.news.tnde.newapp.presenter.AddPresenter;
 import com.news.tnde.newapp.presenter.DetailsPresenter;
 import com.news.tnde.newapp.presenter.ListPresenter;
 import com.news.tnde.newapp.presenter.LoginPresenter;
 import com.news.tnde.newapp.presenter.MainPresenter;
 import com.news.tnde.newapp.presenter.SearchPresenter;
+import com.news.tnde.newapp.view.AddActivity;
 import com.news.tnde.newapp.view.DetailsActivity;
 import com.news.tnde.newapp.view.ListActivity;
 import com.news.tnde.newapp.view.LoginActivity;
@@ -40,6 +42,9 @@ public interface NewsApplicationComponent {
 
     void inject(DetailsActivity detailsActivity);
     void inject(DetailsPresenter detailsPresenter);
+
+    void inject(AddActivity addActivity);
+    void inject(AddPresenter addPresenter);
 
 
 
