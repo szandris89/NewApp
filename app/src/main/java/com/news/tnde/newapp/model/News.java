@@ -4,13 +4,14 @@ import java.util.Date;
 /**
  * Created by mobsoft on 2016. 04. 18..
  */
-public class News {
+public class News extends SugarRecord<News> {
     private int newsID;
     private int ownerID;
     private String title;
     private String date;
     private String text;
 
+    public News(){}
     public News(int id, int oid, String ti, String d, String te){
         newsID = id; ownerID = oid; title = ti; date = d; text = te;
     }
