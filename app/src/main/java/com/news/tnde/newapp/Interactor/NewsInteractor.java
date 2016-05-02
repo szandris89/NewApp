@@ -3,6 +3,10 @@ import com.mtomoskozi.sugarapp.android.SugarAppApplication;
 import com.mtomoskozi.sugarapp.model.prod.PeopleDbModel;
 import com.mtomoskozi.sugarapp.model.Person;
 import com.mtomoskozi.sugarapp.network.PeopleApi;
+import com.news.tnde.newapp.android.NewsApplication;
+import com.news.tnde.newapp.model.News;
+import com.news.tnde.newapp.model.prod.NewsDbModel;
+import com.news.tnde.newapp.network.NewsApi;
 
 import java.util.List;
 
@@ -22,7 +26,7 @@ public class NewsInteractor {
     NewsApi newsApi;
 
     public NewsInteractor() {
-        SugarAppApplication.injector.inject(this);
+        NewsApplication.injector.inject(this);
     }
 
     public void addNewsToDb(News toAdd) {

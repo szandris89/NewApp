@@ -1,4 +1,4 @@
-package com.news.tnde.newapp.view;
+package com.news.tnde.newapp.android;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,18 +13,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.news.tnde.newapp.NewsApplication;
 import com.news.tnde.newapp.R;
-import com.news.tnde.newapp.model.News;
 import com.news.tnde.newapp.presenter.ListPresenter;
-import com.news.tnde.newapp.presenter.LoginPresenter;
-import com.news.tnde.newapp.view.MainActivity;
+import com.news.tnde.newapp.view.ListView;
 
 import javax.inject.Inject;
 
 import com.news.tnde.newapp.R;
 
-public class ListActivity extends Activity implements ListView{
+public class ListActivity extends Activity implements ListView {
     @Inject
     ListPresenter presenter;
 

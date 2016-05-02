@@ -1,48 +1,35 @@
-package com.news.tnde.newapp.view;
+package com.news.tnde.newapp.android;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.news.tnde.newapp.NewsApplication;
-import com.news.tnde.newapp.R;
-
-
 import com.news.tnde.newapp.R;
 import com.news.tnde.newapp.model.News;
-import com.news.tnde.newapp.presenter.SearchPresenter;
-
-import java.util.ArrayList;
+import com.news.tnde.newapp.presenter.MainPresenter;
+import com.news.tnde.newapp.view.MainView;
 
 import javax.inject.Inject;
 
-public class SearchActivity extends Activity implements SearchView{
+public class MainActivity extends Activity implements MainView {
+
     @Inject
-    SearchPresenter presenter;
+    MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_main);
 
         NewsApplication.injector.inject(this);
 
-        findViewById(R.id.searchButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String title = (String) ((TextView)findViewById(R.id.titleEditText)).getText();
-                String user = (String) ((TextView)findViewById(R.id.userEditText)).getText();
-                ArrayList<News> l = presenter.getSearchList();
-
-                // A kapott listat ki kene tenni a masik activity-re
-
-                Intent intent = new Intent(v.getContext(), ListActivity.class);
-                startActivity(intent);
-                // frissites
+                presenter.doStuff();
             }
         });
     }
@@ -50,7 +37,7 @@ public class SearchActivity extends Activity implements SearchView{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_search, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -79,5 +66,10 @@ public class SearchActivity extends Activity implements SearchView{
     protected void onDestroy() {
         super.onDestroy();
         presenter.detachView();
+    }
+
+    @Override
+    public void updateView(News item) {
+        ((TextView)findViewById(R.id.tvHello)).setText(item.getTitle());
     }
 }

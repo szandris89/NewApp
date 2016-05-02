@@ -1,4 +1,4 @@
-package com.news.tnde.newapp.view;
+package com.news.tnde.newapp.android;
 
 import android.content.Context;
 

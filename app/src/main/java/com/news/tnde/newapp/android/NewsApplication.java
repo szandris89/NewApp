@@ -1,7 +1,6 @@
-package com.news.tnde.newapp;
+package com.news.tnde.newapp.android;
 
 import android.app.Application;
-import com.news.tnde.newapp.view.ViewModule;
 
 
 /**

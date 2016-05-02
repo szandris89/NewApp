@@ -1,27 +1,28 @@
-package com.news.tnde.newapp.view;
+package com.news.tnde.newapp.android;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
-import com.news.tnde.newapp.NewsApplication;
 import com.news.tnde.newapp.R;
 import com.news.tnde.newapp.model.News;
-import com.news.tnde.newapp.presenter.AddPresenter;
 import com.news.tnde.newapp.presenter.DetailsPresenter;
+import com.news.tnde.newapp.view.DetailsView;
+
 
 import javax.inject.Inject;
 
-public class AddActivity extends Activity implements AddView {
+public class DetailsActivity extends Activity implements DetailsView {
     @Inject
-    AddPresenter presenter;
+    DetailsPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
+        setContentView(R.layout.activity_details);
 
         NewsApplication.injector.inject(this);
 
@@ -32,11 +33,11 @@ public class AddActivity extends Activity implements AddView {
                 //startActivity(intent);
             }
         });
-        findViewById(R.id.uploadButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.modifyButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                News n = new News(0, 1, "a", "b", "c");
-                presenter.uploadNews(n);
+                News n = new News(0,1,"a","b", "c");
+                presenter.modifyNews(n);
             }
         });
     }
@@ -44,7 +45,7 @@ public class AddActivity extends Activity implements AddView {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add, menu);
+        getMenuInflater().inflate(R.menu.menu_details, menu);
         return true;
     }
 
@@ -73,5 +74,13 @@ public class AddActivity extends Activity implements AddView {
     protected void onDestroy() {
         super.onDestroy();
         presenter.detachView();
+    }
+
+    @Override
+    public void update(News n) {
+        ((TextView)findViewById(R.id.titleEditText)).setText(n.getTitle());
+        ((TextView)findViewById(R.id.textEditText)).setText(n.getText());
+        ((TextView)findViewById(R.id.dateEditText)).setText(n.getDate());
+        ((TextView)findViewById(R.id.userEditText)).setText(n.getOwnerID());
     }
 }

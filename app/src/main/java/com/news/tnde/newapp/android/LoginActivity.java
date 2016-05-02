@@ -1,4 +1,4 @@
-package com.news.tnde.newapp.view;
+package com.news.tnde.newapp.android;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,11 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.news.tnde.newapp.NewsApplication;
 import com.news.tnde.newapp.R;
-import com.news.tnde.newapp.model.News;
 import com.news.tnde.newapp.presenter.LoginPresenter;
-import com.news.tnde.newapp.view.MainActivity; 
+import com.news.tnde.newapp.view.LoginView;
 
 import javax.inject.Inject;
 
