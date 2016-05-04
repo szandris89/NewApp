@@ -11,7 +11,8 @@ import java.util.List;
  */
 public class MockNewsDbModel extends NewsDbModel{
 
-    LinkedList<News> values = new LinkedList<>();
+    //LinkedList<News> values = new LinkedList<>();
+    LinkedList<News> values = new LinkedList<News>();
 
     public MockNewsDbModel() {
         values.add(new News(0,0,"cim1","2016","valami"));

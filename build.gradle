@@ -11,8 +11,6 @@ buildscript {
         // in the individual module build.gradle files
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.7'
 
-        // ORM
-        compile 'com.github.satyan:sugar:1.4'
     }
 }
 

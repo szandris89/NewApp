@@ -7,6 +7,7 @@ import com.mtomoskozi.sugarapp.network.GsonHelper;
 import com.mtomoskozi.sugarapp.network.NetworkConfig;*/
 
 import com.news.tnde.newapp.model.News;
+import com.news.tnde.newapp.network.NetworkConfig;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,7 +22,8 @@ import okhttp3.Response;
 
 public class NewsMock {
 
-    static List<News> newsList = new ArrayList<>();
+    //static List<News> newsList = new ArrayList<>();
+    static List<News> newsList = new ArrayList<News>();
     static boolean isInitialised = false;
 
     public static News testN1 = new News(0,0,"title1","2016","text1");

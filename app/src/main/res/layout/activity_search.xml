@@ -18,7 +18,7 @@
             android:id="@+id/titleEditText"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:minWidth="200"
+            android:minWidth="200dp"
             android:text="title" />
 
         <EditText
@@ -27,7 +27,7 @@
             android:id="@+id/userEditText"
             android:layout_below="@+id/titleEditText"
             android:layout_alignParentStart="true"
-            android:minWidth="200"
+            android:minWidth="200dp"
             android:text="user" />
 
         <Button
