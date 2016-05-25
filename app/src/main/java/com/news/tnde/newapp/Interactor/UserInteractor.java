@@ -1,8 +1,9 @@
 package com.news.tnde.newapp.Interactor;
+
 import com.news.tnde.newapp.android.NewsApplication;
-import com.news.tnde.newapp.model.News;
-import com.news.tnde.newapp.model.prod.NewsDbModel;
-import com.news.tnde.newapp.network.NewsApi;
+import com.news.tnde.newapp.model.User;
+import com.news.tnde.newapp.model.prod.UserDbModel;
+import com.news.tnde.newapp.network.UserApi;
 
 import java.util.List;
 
@@ -12,28 +13,28 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 /**
- * Created by mobsoft on 2016. 05. 02..
+ * Created by Tünde on 2016.05.25..
  */
-public class NewsInteractor {
+public class UserInteractor {
 
     @Inject
-    NewsDbModel model;
+    UserDbModel model;
 
     @Inject
-    NewsApi newsApi;
+    UserApi newsApi;
 
-    public NewsInteractor() {
+    public UserInteractor() {
         NewsApplication.injector.inject(this);
     }
 
-    public void addNewsToDb(News toAdd) {
-        model.insertNews(toAdd);
+    public void addUserToDb(User toAdd) {
+        model.insertUser(toAdd);
     }
 
-    public void addNewsToNetwork(News toAdd) throws Exception {
+    public void addUserToNetwork(User toAdd) throws Exception {
         Response response = null;
 
-        Call call = NewsApi.newsAddDataGet(toAdd.getName());
+        Call call = UserApi.userAddDataGet(toAdd.getName());
         try {
             response = call.execute();
         } catch (Exception e) {
@@ -44,14 +45,14 @@ public class NewsInteractor {
         }
     }
 
-    public List<News> getNewsFromDb() {
-        return model.fetchNews();
+    public List<User> getUserFromDb() {
+        return model.fetchUser();
     }
 
-    public List<News> getNewsFromNetwork() throws Exception {
-        Response<List<News>> response = null;
+    public List<User> getUserFromNetwork() throws Exception {
+        Response<List<User>> response = null;
 
-        Call<List<News>> call = newsApi.newsGet();
+        Call<List<User>> call = userApi.userGet();
         try {
             response = call.execute();
         } catch (Exception e) {
@@ -63,5 +64,5 @@ public class NewsInteractor {
 
         return response.body();
     }
-}
 
+}

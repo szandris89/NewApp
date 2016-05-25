@@ -7,6 +7,7 @@ import dagger.Provides;
  */
 @Module
 public class InteractorModule {
+
     @Provides
     public NewsInteractor provideNewsDbInteractor() {
         return new NewsInteractor();

@@ -12,10 +12,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.news.tnde.newapp.R;
+import com.news.tnde.newapp.model.News;
 import com.news.tnde.newapp.presenter.ListPresenter;
 import com.news.tnde.newapp.view.ListView;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -86,6 +92,22 @@ public class ListActivity extends Activity implements ListView {
     @Override
     public void updateView() {
         //((TextView)findViewById(R.id.tvHello)).setText(item.getTitle());
+    }
+
+    @Override
+    public void showNews(List<News> news) {
+        final ArrayList<News> list = new ArrayList<>();
+        for(int i = 0; i < news.size(); i++) {
+            list.add(news.get(i));
+        }
+
+        ((ListView) findViewById(R.id.listView)).setAdapter(
+                new NewsAdapter(getApplicationContext(), R.layout.list_item));
+    }
+
+    @Override
+    public void showMessage(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 
 }

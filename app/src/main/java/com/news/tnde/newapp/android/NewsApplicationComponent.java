@@ -3,6 +3,7 @@ package com.news.tnde.newapp.android;
 import com.news.tnde.newapp.Interactor.InteractorModule;
 import com.news.tnde.newapp.Interactor.NewsInteractor;
 import com.news.tnde.newapp.model.ModelModule;
+import com.news.tnde.newapp.network.prod.NetworkModule;
 import com.news.tnde.newapp.presenter.AddPresenter;
 import com.news.tnde.newapp.presenter.DetailsPresenter;
 import com.news.tnde.newapp.presenter.ListPresenter;
@@ -56,6 +57,8 @@ public interface NewsApplicationComponent {
     void inject(AddPresenter addPresenter);
 
     void inject(NewsInteractor interactor);
+
+    void inject(NewsApplication app);
 
     //void inject(SugarAppApplication app); ???
 
