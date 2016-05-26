@@ -10,10 +10,16 @@ import com.google.gson.annotations.SerializedName;
  * Created by mobsoft on 2016. 04. 18..
  */
 public class News extends SugarRecord {
+
+    @SerializedName("newsid")
     private int newsID;
+    @SerializedName("ownerid")
     private int ownerID;
+    @SerializedName("title")
     private String title;
+    @SerializedName("date")
     private String date;
+    @SerializedName("text")
     private String text;
 
     @SerializedName("name")
@@ -59,6 +65,11 @@ public class News extends SugarRecord {
     public void setName(String name) {
         this.name = name;
     }
+    public void setNewsID(int id) {this.newsID = id; }
+    public void setOwnerID(int id) {this.ownerID = id;}
+    public void setTitle(String s) {this.title = s;}
+    public void setDate(String s) {this.date = s;}
+    public void setText(String s) {this.text = s;}
 
     @Override
     public boolean equals(Object o){

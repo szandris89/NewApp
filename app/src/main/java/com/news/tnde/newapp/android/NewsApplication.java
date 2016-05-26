@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.news.tnde.newapp.BuildConfig;
 import com.news.tnde.newapp.android.ViewModule;
+import com.orm.SugarContext;
 
 
 /**
@@ -26,6 +27,15 @@ public class NewsApplication extends Application{
     public void setInjector(NewsApplicationComponent appComponent) {
         injector = appComponent;
         injector.inject(this);
+    }
+
+    @Override
+    public void onTerminate(){
+        super.onTerminate();
+
+        if(BuildConfig.FLAVOR.equals("mock")){
+            SugarContext.terminate();
+        }
     }
 
 
