@@ -2,7 +2,8 @@ package com.news.tnde.newapp.network;
 
 import java.util.List;
 
-import com.mtomoskozi.sugarapp.model.Person;
+//import com.mtomoskozi.sugarapp.model.Person;
+import com.news.tnde.newapp.model.News;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

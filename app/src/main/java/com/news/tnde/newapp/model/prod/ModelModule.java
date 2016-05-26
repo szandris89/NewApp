@@ -8,8 +8,10 @@ import dagger.Provides;
 
 @Module
 public class ModelModule {
+
     @Provides
     public NewsDbModel provideNewsDbModel() {
         return new NewsDbModel();
     }
+    public UserDbModel provideUserDbModel() { return new UserDbModel(); }
 }

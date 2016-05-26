@@ -1,8 +1,9 @@
 package com.news.tnde.newapp.network.mock;
+
 import android.net.Uri;
 import android.util.Log;
 
-import com.mtomoskozi.sugarapp.network.NetworkConfig;
+import com.news.tnde.newapp.network.NetworkConfig;
 
 import java.io.IOException;
 
@@ -32,9 +33,9 @@ public class MockInterceptor implements Interceptor {
         Log.d("Test Http Client", "URL call: " + uri.toString());
         Headers headers = request.headers();
 
-        if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "people")) {
+        if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "news")) {
             return PeopleMock.process(request);
-        } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "people/add")) {
+        } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "news/add")) {
             return NewsMock.process(request);
         } else {
             return makeResponse(request, headers, 404, "Unknown");

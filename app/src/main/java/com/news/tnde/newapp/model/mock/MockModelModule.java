@@ -1,7 +1,7 @@
 package com.news.tnde.newapp.model.mock;
 
-import com.mtomoskozi.sugarapp.model.prod.PeopleDbModel;
 import com.news.tnde.newapp.model.prod.NewsDbModel;
+import com.news.tnde.newapp.model.prod.UserDbModel;
 
 import dagger.Module;
 import dagger.Provides;
@@ -17,4 +17,5 @@ public class MockModelModule {
     public NewsDbModel provideMockNewsDbModel() {
         return new MockNewsDbModel();
     }
+    public UserDbModel provideMockUserDbModel() { return new MockUserDbModel(); }
 }

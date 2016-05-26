@@ -1,6 +1,6 @@
 package com.news.tnde.newapp.model.prod;
 
-import com.mtomoskozi.sugarapp.model.Person;
+
 import com.news.tnde.newapp.model.News;
 
 import java.util.LinkedList;

@@ -1,7 +1,8 @@
 package com.news.tnde.newapp.network.mock;
 
-import com.mtomoskozi.sugarapp.network.PeopleApi;
-import com.mtomoskozi.sugarapp.network.prod.NetworkModule;
+import com.news.tnde.newapp.network.NewsApi;
+import com.news.tnde.newapp.network.prod.NetworkModule;
+
 import com.sun.net.httpserver.Filter;
 
 import java.io.IOException;

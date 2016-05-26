@@ -15,8 +15,8 @@ public class MockNewsDbModel extends NewsDbModel{
     LinkedList<News> values = new LinkedList<News>();
 
     public MockNewsDbModel() {
-        values.add(new News(0,0,"cim1","2016","valami"));
-        values.add(new News(1,0,"cim2","2016","valami2"));
+        values.add(new News(0,0,"cim1","2016","valami","hir1"));
+        values.add(new News(1,0,"cim2","2016","valami2","hir2"));
     }
 
     @Override
