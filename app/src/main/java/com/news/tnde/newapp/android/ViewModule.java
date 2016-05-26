@@ -31,6 +31,12 @@ public class ViewModule {
         return context;
     }
 
+   /* @Provides
+    @Singleton
+    public MainPresenter provideMainPresenter() {
+        return new MainPresenter();
+    }*/
+
     @Provides
     @Singleton
     public MainPresenter getMainPresenter() {
