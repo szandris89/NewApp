@@ -6,6 +6,10 @@ import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Created by mobsoft on 2016. 04. 18..
  */
@@ -76,7 +80,7 @@ public class News extends SugarRecord {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         News news = (News)o;
-        return Objects.equals(name, news.name);
+        return Objects.equals(name, news.name) && Objects.equals(newsID, news.newsID);
     }
 
     @Override
