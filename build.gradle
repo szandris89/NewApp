@@ -11,6 +11,9 @@ buildscript {
         // in the individual module build.gradle files
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.7'
 
+        // analytics
+        classpath 'com.google.gms:google-services:3.0.0'
+
     }
 }
 

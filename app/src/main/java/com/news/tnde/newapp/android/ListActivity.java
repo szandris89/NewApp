@@ -2,6 +2,7 @@ package com.news.tnde.newapp.android;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,6 +15,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.news.tnde.newapp.R;
 import com.news.tnde.newapp.model.News;
 import com.news.tnde.newapp.presenter.ListPresenter;
@@ -30,6 +33,8 @@ import com.news.tnde.newapp.R;
 public class ListActivity extends Activity implements ListView {
     @Inject
     ListPresenter presenter;
+
+    private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,10 @@ public class ListActivity extends Activity implements ListView {
                 //startActivity(intent);
             }
         });
+
+        // Obtain the shared Tracker instance.
+        NewsApplication application = (NewsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
     }
 
     @Override
@@ -110,4 +119,12 @@ public class ListActivity extends Activity implements ListView {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(this.getClass().getName(), "Setting screen name: " + this.getClass().getName());
+        mTracker.setScreenName("Image~" + this.getClass().getName());
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
 }

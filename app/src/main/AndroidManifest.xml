@@ -15,7 +15,8 @@
         <meta-data android:name="QUERY_LOG" android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.example" />
 
-
+        <uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
 
 
@@ -48,6 +49,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="1dc092de903e0800c7eac1a12ee8a16ccb00e8c1" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

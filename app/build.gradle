@@ -1,5 +1,21 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 19
@@ -29,6 +45,14 @@ dependencies {
     apt "com.google.dagger:dagger-compiler:2.0.1"
     provided 'javax.annotation:jsr250-api:1.0'
 
+    // analytics
+    compile 'com.google.android.gms:play-services-analytics:9.0.0'
+
     // ORM
     compile 'com.github.satyan:sugar:1.4'
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
+        transitive = true;
+    }
+
+
 }

@@ -72,4 +72,5 @@ public class MainActivity extends Activity implements MainView {
     public void updateView(News item) {
         ((TextView)findViewById(R.id.tvHello)).setText(item.getTitle());
     }
+
 }

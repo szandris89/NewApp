@@ -3,11 +3,14 @@ package com.news.tnde.newapp.android;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.news.tnde.newapp.R;
 import com.news.tnde.newapp.presenter.LoginPresenter;
 import com.news.tnde.newapp.view.LoginView;
@@ -20,6 +23,8 @@ import javax.inject.Inject;
 public class LoginActivity extends Activity implements LoginView {
     @Inject
     LoginPresenter presenter;
+
+    private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,10 @@ public class LoginActivity extends Activity implements LoginView {
             }
         });
 
+        // Obtain the shared Tracker instance.
+        NewsApplication application = (NewsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+
     }
 
     @Override
@@ -49,6 +58,14 @@ public class LoginActivity extends Activity implements LoginView {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(this.getClass().getName(), "Setting screen name: " + this.getClass().getName());
+        mTracker.setScreenName("Image~" + this.getClass().getName());
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @Override
